@@ -37,7 +37,7 @@ module GrowlGlue
       end  
     end
 
-    def self.growl(title, msg, img=nil, pri=1, sticky="")
+    def self.growl(title, msg, img=nil, pri=0, sticky="")
       command = []
       
       if @config.option(:notification, :use_network_notifications)
@@ -88,9 +88,9 @@ module GrowlGlue
         if failures > 0  
           notify :failure, @config.option(:title, :failure), "#{output}", @config.option(:image, :failure), 2  
         elsif pending > 0
-          notify :pending, @config.option(:title, :pending), "#{output}", @config.option(:image, :pending)
+          notify :pending, @config.option(:title, :pending), "#{output}", @config.option(:image, :pending), 1
         else  
-          notify :success, @config.option(:title, :success), "#{output}", @config.option(:image, :success)   
+          notify :success, @config.option(:title, :success), "#{output}", @config.option(:image, :success), -1   
         end  
       end  
     end
@@ -102,7 +102,7 @@ module GrowlGlue
         if (($~[3].to_i > 0) or ($~[4].to_i > 0))  
           notify :failure, @config.option(:title, :failure), "#{output}",  @config.option(:image, :failure), 2  
         else  
-          notify :success, @config.option(:title, :success), "#{output}",  @config.option(:image, :success)   
+          notify :success, @config.option(:title, :success), "#{output}",  @config.option(:image, :success), -1   
         end  
       end  
     end

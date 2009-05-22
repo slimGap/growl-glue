@@ -9,6 +9,7 @@ Simplifies Growl configuration for Autotest.
 * Ability to specify OS X speech options (e.g. "Oh No!", if test failure)
 * Ability to use a different OS X voice for each status
 * Ability to specify sounds for success or failure conditions
+* Ability to color code the Growl display for success, pending, and failure
 * RSpec support
 * Test::Unit support
 
@@ -48,6 +49,17 @@ If you have *OS X 10.5* -or- *sndplay* compiled and in the path, you can have di
   config.sound :failure => "Basso.aiff"
   config.sound :location => "/System/Library/Sounds/" (optional)
 
+
+Color Code Growl:
+Growl allows you to apply different styles based on an alert's 'importance' (System Preferences > Growl > Display Options). This allows you to extend the red/yellow/green pattern to the Growl display.
+
+  GrowlGlue automatically sets the following levels of importance:
+    success = 'Moderate'
+    pending = 'High'
+    failure = 'Emergency'
+
+It is recommended that you use 'normal' for other Growl alerts.
+  
 GrowlGlue comes with success and error images it will use on test success and error, respectively. If you wish to supply your own, for example:
 
   config.image :success => "~/Library/autotest/success.png"
