@@ -58,7 +58,7 @@ Growl allows you to apply different styles based on an alert's 'importance' (Sys
     pending = 'High'
     failure = 'Emergency'
 
-It is recommended that you use 'normal' for other Growl alerts.
+It is recommended that you use 'Normal' for other Growl alerts.
   
 GrowlGlue comes with success and error images it will use on test success and error, respectively. If you wish to supply your own, for example:
 
